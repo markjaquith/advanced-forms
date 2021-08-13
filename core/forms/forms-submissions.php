@@ -87,8 +87,8 @@ class AF_Core_Forms_Submissions {
     }
 
     $response = apply_filters( 'af/form/ajax/response', $response, $form, $args );
-    $response = apply_filters( 'af/form/ajax/response/post=' . $form['post_id'], $response, $form, $args );
-    $response = apply_filters( 'af/form/ajax/response/key=' . $form['key'], $response, $form, $args );
+    $response = apply_filters( 'af/form/ajax/response/post=' . isset( $form['post_id'] ) ? $form['post_id'] : '', $response, $form, $args );
+    $response = apply_filters( 'af/form/ajax/response/key=' . isset( $form['key'] ) ? $form['key'] : '', $response, $form, $args );
 
     wp_send_json_success( $response );
     wp_die();
